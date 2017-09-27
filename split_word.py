@@ -23,3 +23,19 @@ def is_exist(word):
     except ValueError:
         return u'\u274C'
 
+
+def split_word(sentence):
+    words = sentence.split(' ')
+    word_array = []
+    i = 0
+    while i < len(words):
+        if i + 2 < len(words) and is_exist((words[i] + ' ' + words[i + 1] + ' ' + words[i + 2]).encode('utf-8')) == u'\u2713':
+            word_array.append(words[i] + ' ' + words[i + 1] + ' ' + words[i + 2])
+            i += 2
+        elif i + 1 < len(words) and is_exist((words[i] + ' ' + words[i + 1]).encode('utf-8')) == u'\u2713':
+            word_array.append(words[i] + ' ' + words[i + 1])
+            i += 1
+        else:
+            word_array.append(words[i])
+        i += 1
+    return word_array
