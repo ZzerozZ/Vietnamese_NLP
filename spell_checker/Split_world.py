@@ -32,7 +32,7 @@ def split_word(sentence):
             word_array.append(Word(words[i] + ' ' + words[i + 1], u'\u2713'))
             i += 1
         else:
-            if is_exist(words[i].encode('utf-8'), hash_table):
+            if is_exist(words[i].encode('utf-8'), hash_table) == u'\u2713':
                 word_array.append(Word(words[i], u'\u2713'))
             else:
                 word_array.append(Word(words[i], u'\u274C'))
