@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# NEED TO UPDATE: 'á', 'ở',...
 
 
 def get_word(dec):
