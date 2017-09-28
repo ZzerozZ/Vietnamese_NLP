@@ -23,6 +23,7 @@ def split_word(sentence):
 
     i = 0
     len_ = len(words)
+    
     while i < len_:
         if i + 2 < len_ and is_exist((words[i] + ' ' + words[i + 1] + ' ' + words[i + 2]).encode('utf-8'), hash_table)\
                 == u'\u2713':
