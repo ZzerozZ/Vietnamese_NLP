@@ -18,12 +18,13 @@ def special_type(word):
 def is_mail_address(word):
     try:
         is_email = word.index('@')
-        for i in range(0, is_email + 1):
-            if word[i] != '.' and to_int(word) == 0:
+        print is_email
+        for i in range(0, is_email):
+            if word[i] != '.' and to_int(word[i]) == 0:
                 return 0
 
-        for i in range(is_email + 2, len(word)):
-            if word[i] != '.' and to_int(word) == 0:
+        for j in range(is_email + 1, len(word)):
+            if word[j] != '.' and to_int(word[j]) == 0:
                 return 0
 
         return 1
