@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from Word import Word, special_type
+from Sentence import format_sentence
 from dic_hashing import hash_word, get_hashtable
 
 
@@ -18,6 +19,7 @@ def is_exist(word, hash_table):
 
 
 def split_word(sentence):
+    sentence = format_sentence(sentence)
     words = sentence.split(' ')
     word_array = []
     hash_table = get_hashtable()
