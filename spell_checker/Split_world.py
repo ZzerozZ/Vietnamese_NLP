@@ -20,7 +20,6 @@ def is_exist(word, hash_table):
 
 def split_word(sentence):
     sentence = format_sentence(sentence)
-    print sentence
     words = sentence.split(' ')
     word_array = []
     hash_table = get_hashtable()
@@ -41,7 +40,7 @@ def split_word(sentence):
                 word_array.append(Word(words[i], u'\u2713'))
             else:
                 if words[i] != '\n':
-                    word_array.append(Word('[' + words[i] + ']', u'\u274C'))
+                    word_array.append(Word('~' + words[i], u'\u274C'))
                 else:
                     word_array.append(Word(words[i], u'\u2713'))
         i += 1

@@ -2,7 +2,6 @@
 
 
 from Split_world import split_word
-# from Word import Word
 
 
 def check(input_file_path):
@@ -18,6 +17,9 @@ def check(input_file_path):
     output_file = open("output.txt", "w")
 
     for sentence in split:
-        for word in sentence:
-            output_file.write((word.word + ' ').encode('utf-8'))
+        for i in range(0, len(sentence)):
+            str_ = ' '
+            if i < len(sentence) - 1 and sentence[i + 1].word == '\n':
+                str_ = ''
+            output_file.write((sentence[i].word + str_).encode('utf-8'))
     output_file.close()
