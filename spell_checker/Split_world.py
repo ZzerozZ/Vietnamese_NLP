@@ -6,7 +6,7 @@ from dic_hashing import hash_word, get_hashtable
 
 
 def is_exist(word, hash_table):
-    word = word.strip().lower().decode('utf-8')
+    word = word.lower().decode('utf-8')
     word = special_type(word)
 
     k = 0
@@ -20,6 +20,7 @@ def is_exist(word, hash_table):
 
 def split_word(sentence):
     sentence = format_sentence(sentence)
+    print sentence
     words = sentence.split(' ')
     word_array = []
     hash_table = get_hashtable()
@@ -30,16 +31,19 @@ def split_word(sentence):
     while i < len_:
         if i + 2 < len_ and is_exist((words[i] + ' ' + words[i + 1] + ' ' + words[i + 2]).encode('utf-8'), hash_table)\
                 == u'\u2713':
-            word_array.append(Word(words[i] + ' ' + words[i + 1] + ' ' + words[i + 2], u'\u2713'))
+            word_array.append(Word(words[i] + '_' + words[i + 1] + '_' + words[i + 2], u'\u2713'))
             i += 2
         elif i + 1 < len_ and is_exist((words[i] + ' ' + words[i + 1]).encode('utf-8'), hash_table) == u'\u2713':
-            word_array.append(Word(words[i] + ' ' + words[i + 1], u'\u2713'))
+            word_array.append(Word(words[i] + '_' + words[i + 1], u'\u2713'))
             i += 1
         else:
             if is_exist(words[i].encode('utf-8'), hash_table) == u'\u2713':
                 word_array.append(Word(words[i], u'\u2713'))
             else:
-                word_array.append(Word(words[i], u'\u274C'))
+                if words[i] != '\n':
+                    word_array.append(Word('[' + words[i] + ']', u'\u274C'))
+                else:
+                    word_array.append(Word(words[i], u'\u2713'))
         i += 1
 
     return word_array

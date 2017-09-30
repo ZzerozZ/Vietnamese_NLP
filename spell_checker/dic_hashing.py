@@ -37,12 +37,14 @@ def to_int(char):
         return 43
     elif char.encode('utf-8') == u'ấ'.encode('utf-8'):
         return 44
-    elif char.encode('utf-8') == u'ẩ'.encode('utf-8'):
+    elif char.encode('utf-8') == u'ầ'.encode('utf-8'):
         return 45
-    elif char.encode('utf-8') == u'ẫ'.encode('utf-8'):
+    elif char.encode('utf-8') == u'ẩ'.encode('utf-8'):
         return 46
-    elif char.encode('utf-8') == u'ậ'.encode('utf-8'):
+    elif char.encode('utf-8') == u'ẫ'.encode('utf-8'):
         return 47
+    elif char.encode('utf-8') == u'ậ'.encode('utf-8'):
+        return 48
 
     elif char == 'b':
         return 64
